@@ -16,22 +16,33 @@ export class FilmCard extends Component {
   }
 
   render() {
-    let { title, year, genre, actors, plot, poster } = this.props.movie;
+    let {
+      title,
+      episode_id,
+      opening_crawl,
+      director,
+      producer,
+      release_date
+    } = this.props.film;
     return (
       <div>
         <Card>
           <CardImg top width="100%" src={poster} alt="Card image cap" />
           <CardBody>
             <CardTitle>{title}</CardTitle>
-            <CardSubtitle>{year}</CardSubtitle>
-            <CardText>{plot}</CardText>
+            <CardSubtitle>{episode_id}</CardSubtitle>
+            <CardText>{opening_crawl}</CardText>
             <CardText>
-              <b>Actors: </b>
-              {actors}
+              <b>Director: </b>
+              {director}
             </CardText>
             <CardText>
-              <b>Genre: </b>
-              {genre}
+              <b>Producer: </b>
+              {producer}
+            </CardText>
+            <CardText>
+              <b>Release Data: </b>
+              {release_date}
             </CardText>
 
             <Button

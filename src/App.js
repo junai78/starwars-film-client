@@ -23,7 +23,7 @@ class App extends Component {
     this.state = {
       alertVisible: false,
       title: '',
-      movies: []
+      films: []
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -35,11 +35,11 @@ class App extends Component {
     this.setState({ alertVisible: false });
   }
 
-  getAllMovies = () => {
+  getAllFilms = () => {
     axios
-      .get('https://boiling-sands-34953.herokuapp.com/getallfilm')
+      .get('https://boiling-sands-34953.herokuapp.com/getallfilms')
       .then(result => {
-        this.setState({ movies: result.data });
+        this.setState({ films: result.data });
       })
       .catch(error => {
         console.log(error);
@@ -47,7 +47,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getAllMovies();
+    this.getAllFilms();
   }
 
   //for form
@@ -82,17 +82,17 @@ class App extends Component {
     });
   }
 
-  removeMovie(title) {
+  removeFilm(title) {
     this.setState({
-      movies: this.state.movies.filter(movie => {
-        if (movie.title !== title) return movie;
+      films: this.state.films.filter(film => {
+        if (film.title !== title) return film;
       })
     });
     const query = `https://boiling-sands-34953.herokuapp.com/deletefilm?title=${title}`;
     axios
       .get(query)
       .then(result => {
-        this.getAllMovies();
+        this.getAllFilms();
       })
       .catch(error => {
         alert('Error: ', error);
@@ -100,10 +100,10 @@ class App extends Component {
   }
 
   render() {
-    let movieCards = this.state.movies.map(movie => {
+    let filmCards = this.state.films.map(film => {
       return (
-        <Col sm="4" key={movie.title}>
-          <FilmCard removeMovie={this.removeMovie.bind(this)} movie={movie} />
+        <Col sm="4" key={film.title}>
+          <FilmCard removeFilm={this.removeFilm.bind(this)} film={film} />
         </Col>
       );
     });
