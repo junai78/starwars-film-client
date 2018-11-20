@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import {
   Card,
-  CardImg,
+  // CardImg,
   CardText,
   CardBody,
   CardTitle,
@@ -27,7 +27,7 @@ export class FilmCard extends Component {
     return (
       <div>
         <Card>
-          <CardImg top width="100%" src={poster} alt="Card image cap" />
+          {/* <CardImg top width="100%" src={poster} alt="Card image cap" /> */}
           <CardBody>
             <CardTitle>{title}</CardTitle>
             <CardSubtitle>{episode_id}</CardSubtitle>

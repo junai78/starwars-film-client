@@ -13,8 +13,8 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  FormText
+  Input
+  // FormText
 } from 'reactstrap';
 
 class App extends Component {
@@ -68,10 +68,10 @@ class App extends Component {
         if (result.data === 'Not found') {
           this.setState({ alertVisible: true });
         }
-        this.getAllMovies();
+        this.getAllFilms();
       })
       .catch(error => {
-        alert('Error: ', error);
+        alert('Not found!\nError: ', error);
       });
   };
 
@@ -145,7 +145,7 @@ class App extends Component {
             </Col>
           </Row>
           <p />
-          <Row>{movieCards}</Row>
+          <Row>{filmCards}</Row>
         </Container>
       </div>
     );
