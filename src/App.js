@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import MovieCard from './MovieCard';
+import FilmCard from './FilmCard';
 import axios from 'axios';
 
 import {
@@ -37,7 +37,7 @@ class App extends Component {
 
   getAllMovies = () => {
     axios
-      .get('https://fast-ocean-16315.herokuapp.com/getallmovies')
+      .get('https://boiling-sands-34953.herokuapp.com/getallfilm')
       .then(result => {
         this.setState({ movies: result.data });
       })
@@ -55,7 +55,7 @@ class App extends Component {
     e.preventDefault();
     this.setState({ alertVisible: false });
 
-    const query = `https://fast-ocean-16315.herokuapp.com/getmovie?title=${
+    const query = `https://boiling-sands-34953.herokuapp.com/getfilm?title=${
       this.state.title
     }`;
 
@@ -88,7 +88,7 @@ class App extends Component {
         if (movie.title !== title) return movie;
       })
     });
-    const query = `https://fast-ocean-16315.herokuapp.com/deletemovie?title=${title}`;
+    const query = `https://boiling-sands-34953.herokuapp.com/deletefilm?title=${title}`;
     axios
       .get(query)
       .then(result => {
@@ -103,7 +103,7 @@ class App extends Component {
     let movieCards = this.state.movies.map(movie => {
       return (
         <Col sm="4" key={movie.title}>
-          <MovieCard removeMovie={this.removeMovie.bind(this)} movie={movie} />
+          <FilmCard removeMovie={this.removeMovie.bind(this)} movie={movie} />
         </Col>
       );
     });
@@ -111,8 +111,8 @@ class App extends Component {
       <div className="App">
         <Container>
           <Jumbotron id="jumboheader">
-            <h1 className="display-4">Movie Search</h1>
-            <p className="lead">Search for movies</p>
+            <h1 className="display-4">Film Search</h1>
+            <p className="lead">Search for films</p>
           </Jumbotron>
           <Row>
             <Col>
@@ -121,7 +121,7 @@ class App extends Component {
                 isOpen={this.state.alertVisible}
                 toggle={this.onDismiss}
               >
-                Movie not found
+                Film not found
               </Alert>
             </Col>
           </Row>
@@ -129,12 +129,14 @@ class App extends Component {
             <Col>
               <Form onSubmit={this.onSubmit}>
                 <FormGroup>
-                  <Label for="title">Enter movie title</Label>
+                  <Label for="title">
+                    Enter film title to insert to MongoDB
+                  </Label>
                   <Input
                     type="text"
                     name="title"
                     id="title"
-                    placeholder="enter movie title..."
+                    placeholder="Enter film title..."
                     onChange={this.onChange}
                   />
                 </FormGroup>

@@ -10,7 +10,7 @@ import {
   Button
 } from 'reactstrap';
 
-export class MovieCard extends Component {
+export class FilmCard extends Component {
   constructor(props) {
     super(props);
   }
@@ -25,10 +25,18 @@ export class MovieCard extends Component {
             <CardTitle>{title}</CardTitle>
             <CardSubtitle>{year}</CardSubtitle>
             <CardText>{plot}</CardText>
+            <CardText>
+              <b>Actors: </b>
+              {actors}
+            </CardText>
+            <CardText>
+              <b>Genre: </b>
+              {genre}
+            </CardText>
 
             <Button
               color="primary"
-              onClick={() => this.props.removeMovie(title)}
+              onClick={() => this.props.removeFilm(title)}
             >
               Delete
             </Button>
@@ -39,4 +47,4 @@ export class MovieCard extends Component {
   }
 }
 
-export default MovieCard;
+export default FilmCard;
