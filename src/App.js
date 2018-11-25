@@ -13,8 +13,17 @@ import {
   Form,
   FormGroup,
   Label,
-  Input
+  Input,
   // FormText
+
+  //Navbar Import
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
 } from 'reactstrap';
 
 class App extends Component {
@@ -109,44 +118,64 @@ class App extends Component {
     });
     return (
       <div className="App">
-        <Container>
-          <Jumbotron id="jumboheader">
-            <h1 className="display-4">Film Search</h1>
-            <p className="lead">Search for films</p>
-          </Jumbotron>
-          <Row>
-            <Col>
-              <Alert
-                color="danger"
-                isOpen={this.state.alertVisible}
-                toggle={this.onDismiss}
-              >
-                Film not found
-              </Alert>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form onSubmit={this.onSubmit}>
-                <FormGroup>
-                  <Label for="title">
-                    Enter film title to insert to MongoDB
-                  </Label>
-                  <Input
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder="Enter film title..."
-                    onChange={this.onChange}
-                  />
-                </FormGroup>
-                <Button color="primary">Submit</Button>
-              </Form>
-            </Col>
-          </Row>
-          <p />
-          <Row>{filmCards}</Row>
-        </Container>
+        <div>
+          <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">Star Wars API</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <NavLink href="/getallfilms/">All films</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">
+                    GitHub
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
+        <div>
+          <Container>
+            <Jumbotron id="jumboheader">
+              <h1 className="display-4">Film Search</h1>
+              <p className="lead">Search for films</p>
+            </Jumbotron>
+            <Row>
+              <Col>
+                <Alert
+                  color="danger"
+                  isOpen={this.state.alertVisible}
+                  toggle={this.onDismiss}
+                >
+                  Film not found
+                </Alert>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form onSubmit={this.onSubmit}>
+                  <FormGroup>
+                    <Label for="title">
+                      Enter film title to insert to MongoDB
+                    </Label>
+                    <Input
+                      type="text"
+                      name="title"
+                      id="title"
+                      placeholder="Enter film title..."
+                      onChange={this.onChange}
+                    />
+                  </FormGroup>
+                  <Button color="primary">Submit</Button>
+                </Form>
+              </Col>
+            </Row>
+            <p />
+            <Row>{filmCards}</Row>
+          </Container>
+        </div>
       </div>
     );
   }
