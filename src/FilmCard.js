@@ -17,13 +17,13 @@ export class FilmCard extends Component {
 
   render() {
     let {
-      poster,
       title,
       episode_id,
       opening_crawl,
       director,
       producer,
-      release_date
+      release_date,
+      poster
     } = this.props.film;
     return (
       <div>
