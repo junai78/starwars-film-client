@@ -139,8 +139,8 @@ class App extends Component {
         <div>
           <Container>
             <Jumbotron id="jumboheader">
-              <h1 className="display-4">Film Search</h1>
-              <p className="lead">Search for films</p>
+              <h1 className="display-4">Star Wars Film Search</h1>
+              <p className="lead">Search for Star Wars films</p>
             </Jumbotron>
             <Row>
               <Col>
@@ -158,7 +158,7 @@ class App extends Component {
                 <Form onSubmit={this.onSubmit}>
                   <FormGroup>
                     <Label for="title">
-                      Enter film title to insert to MongoDB
+                      Enter Star Wars film title to insert to MongoDB
                     </Label>
                     <Input
                       type="text"
