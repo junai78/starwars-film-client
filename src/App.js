@@ -118,7 +118,7 @@ class App extends Component {
     });
     return (
       <div className="App">
-        <div>
+        {/* <div>
           <Navbar color="light" light expand="md">
             <NavbarBrand href="/">Star Wars API</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
@@ -135,7 +135,7 @@ class App extends Component {
               </Nav>
             </Collapse>
           </Navbar>
-        </div>
+        </div> */}
         <div>
           <Container>
             <Jumbotron id="jumboheader">
