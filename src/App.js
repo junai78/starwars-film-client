@@ -118,24 +118,6 @@ class App extends Component {
     });
     return (
       <div className="App">
-        {/* <div>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Star Wars API</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="mr-auto" navbar>
-                <NavItem>
-                  <NavLink href="/getallfilms/">All films</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">
-                    GitHub
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Navbar>
-        </div> */}
         <div>
           <Container>
             <Jumbotron id="jumboheader">
